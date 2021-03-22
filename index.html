@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="hugo thiallet">
+        <meta name="copyright" content="hugo thiallet">
+        <meta name="publisher" content="hugo thiallet">
+        <title>SJA CONSEIL - Au service de l'innovation sociale.</title>
+        <meta name="description" content="Le cabinet de psychologie du travail SJA Conseil, accompagne les acteurs économiques à promouvoir un lien essentiel entre la santé, les compétences et l’organisation du travail">
+        <script src="https://kit.fontawesome.com/0d46a31234.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body, html {
+                margin: 0;
+                padding: 0;
+                font-family: Libre Baskerville;
+            }
+            .container {
+                width: 90%;
+                margin: auto;
+                position: relative;
+                z-index: 999;
+            }
+            .header {
+                height: 450px;
+                width: 100%;
+                background: #a7aeb4;
+                position: relative;
+            }
+            .header__navbar {
+                width: 100%;
+                height: 80px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header__navbar--logo-title {
+                color: rgb(250, 250, 250);
+                font-size: 28px;
+            }
+            .header__navbar--menu-link {
+                margin-left: 40px;
+                color: white;
+                text-decoration: none;
+            }
+            .header__texture {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0; left: 0;
+                background-image: url(../site/work.png);
+                background-size: cover;
+                z-index: 1;
+                opacity: 0.7;
+            }
+            .header__mask {
+                position: absolute;
+                bottom: 0;
+                background: 0 0;
+                height: 42px;
+                width: 100%;
+                z-index: 10;
+            }
+            .header__slogan {
+                text-align: center;
+                margin-top: 220px;
+
+            }
+            .h__slogan--title {
+                color: rgb(71, 66, 66);
+                font-size: 18px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .h__slogan--btn {
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+                font-size: 16px;
+                padding: 5px 12px;
+                background: rgb(67, 145, 51);
+                border-radius: 3px;
+            }
+
+            @media only screen and (max-width: 700px){
+                .container {
+                    width: 100%;
+                    padding: 0 20px;
+                }
+                .header__navbar-toggle {
+                    display: flex;
+                    z-index: 1000;
+                    
+                }
+                .header__navbar--menu {
+                    
+                    transform: translateY(-100%);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    width: 100vw;
+                    height: 100vh;
+                    top: 0;left: 0;
+                }
+                .header__navbar--menu-link {
+                    margin: 20px 0;
+                    font-size: 24px;
+                }
+            }
+            
+
+
+            .articles {
+                text-align: center;
+                padding-top: 30px;
+               
+            }
+            .articles__title {
+                font-size: 23px;
+                text-align: center;
+                color: #333;
+                border-bottom: 3px solid rgb(67, 145, 51);  
+                display: inline;
+            }
+            .articles__items {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding-top: 50px;
+                flex-wrap: wrap;
+            }
+            .article {
+                width: 25%;
+                height: 200px;
+               background-size: cover; 
+               border-radius: 5px;
+               position: relative;
+               overflow: hidden;
+               padding: 20px;
+               cursor: pointer;
+               text-decoration: none;
+            }
+            
+            .article__filter {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;left: 0;
+                background: linear-gradient( rgba(0, 0, 0, 0.3),rgba(0,0,0,0.2));
+            }
+            .article__name {
+                color: white;
+                z-index: 1;
+                position: relative;
+                text-align: center;
+                font-size: 16px;
+            }
+            .article:hover .article__icon {
+                transform: translateY(0);
+
+            }
+            .article__icon {
+                z-index: 1;
+                position: absolute;
+                top: 0; left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 50px;
+                color: white;
+                height: 100%;
+                transform: translateY(100%);
+                width: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+            @media only screen and (max-width: 900px) {
+               .articles__items {
+                   justify-content: center;
+
+               }
+                .article {
+                    width: 300px;
+                    margin-bottom: 20px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+            }
+            footer{
+                background: #f1f1f1;
+                padding: 10px 0;
+            }
+            .footer-container {
+                max-width: 1300px;
+                margin: auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap-reverse;
+                
+            }
+            .logo{
+                width: 350px;
+            }
+            .social-media {
+                margin: 20px 0;
+            }
+            .social-media a{
+                color: #001a21;
+                margin-right: 25px;
+                font-size: 22px;
+                text-decoration: none;
+                transition: .3s linear;
+            }
+            .social-media a:hover{
+                color: #5af180;
+                
+            }
+            
+            .right-col h1{
+                font-size: 26px;
+            }
+            .border{
+                width: 100px;
+                height: 4px;
+                background: #5af180;
+            }
+            .newsletter-form{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .txtb{
+                flex: 1;
+                padding: 18px 40px;
+                font-size: 16px;
+                color: #293043;
+                background: #ddd;
+                border: none;
+                font-weight: 700;
+                outline: none;
+                border-radius: 30px;
+                min-width: 260px;
+            }
+            .btn{
+                padding: 12px 30px;
+                font-size: 16px;
+                color: #f1f1f1;
+                background: #5af180;
+                border: none;
+                font-weight: 700;
+                outline: none;
+                border-radius: 30px;
+                margin-left: 20px;
+                cursor: pointer;
+                transition: opacity .3s linear;
+
+            }
+            .btn:hover{
+                opacity: .7;
+            }
+            .page-content{
+                min-width: 100vh;
+                font-size: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            @media screen and (max-width:960px) {
+                .footer-container{
+                    max-width: 100%;
+                    margin-bottom: 60px;
+                }
+                .left-col{
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            @media screen and (max-width: 700){
+                .btn{
+                    margin: 0;
+                    width: 100%;
+                    margin-top: 20px;
+                }
+            }
+            .article__view-container {
+               width: 70%;
+               margin: auto;
+               padding-top: 6px;
+           }
+           .article__view-content {
+               padding-top: 2px;
+               text-align: justify;
+               padding-bottom: 10px;
+               line-height: 27px;
+               font-weight: 300;
+               font-size: 17px;
+           }
+
+           .title-square {
+    width: 126px;
+    margin-left: calc((100% - 126px) / 2);
+    margin-right: calc((100% - 126px) / 2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFC740;
+    -webkit-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.mt-01 {
+    margin-top: 60px;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 460px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header__texture"></div>
+            <div class="header__mask">
+                <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" >
+                    <path d="M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" fill="#fff"></path>
+                </svg>
+            </div>
+           <div class="container">
+            <div class="header__navbar">
+                <div class="header__navbar--logo">
+                    <h1 class="header__navbar--logo-title">SJA CONSEIL</h1>
+                </div>
+                <div class="header__navbar--menu">
+                    <a href="#accueil" class="header__navbar--menu-link"><i class="fas fa-home"></i> Accueil</a>
+                    <a href="#solution" class="header__navbar--menu-link"><i class="fas fa-newspaper"></i> Solutions</a>
+                    <a href="#contact" class="header__navbar--menu-link"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+                <div class="header__navbar-toggle">
+                    <span class="header__navbar-toggle-icons"></span>
+                </div>
+            </div>
+            <div class="header__slogan">
+                <h1 class="h__slogan--title" id="accueil"> Psychologie du travail</h1>
+                <a href="#contact" class="h__slogan--btn">Prendre contact</a>
+            </div>
+           </div>
+        </div>
+
+        <div class="articles">
+            <div class="container">
+            <h2 class="articles__title">À propos</h2>
+            <div class="articles__items">
+        </div>
+            </div>
+        </div>
+        <div class="article__view-container">
+            <div class="article__view">
+                <p class="article__view-content"> Le cabinet SJA conseil a pour vocation d’accompagner les acteurs économiques à promouvoir un lien essentiel entre la santé, les compétences et l’organisation du travail. 
+                </p>
+                <p class="article__view-content"> Notre approche est centrée sur l’analyse de l’activité dans un objectif de compréhension et de développement des situations de travail. </p>
+            </div>   
+         </div>
+
+        <div class="articles">
+            <div class="container">
+            <h2 class="articles__title" id="solution">Solutions & champs d'interventions</h2>
+            <div class="articles__items">
+
+            
+            <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/article1.html" class="article" style="background: url(../site/accompagnement.jpg); background-size: cover;">
+                <div class="article__filter"></div>
+                <div class="article__name">Santé et qualité de vie au travail</div>
+                <div class="article__icon"><i class="fas fa-play"></i></div>
+            </a>
+            <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/article2.html" class="article" style="background: url(../site/coquillage.jpg); background-size: cover;">
+                <div class="article__filter"></div>
+                <div class="article__name">Accompagnement collectif</div>
+                <div class="article__icon"><i class="fas fa-play"></i></div>
+                </a>
+
+            
+            <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/article3.html" class="article" style="background: url(../site/oiseau.jpg); background-size: cover;">
+                <div class="article__filter"></div>
+                <div class="article__name">Accompagnement individuel </div>
+                <div class="article__icon"><i class="fas fa-play"></i></div>
+            </a>
+        </div>
+        </div>
+        </div>
+    
+        
+        <div class="articles">
+            <div class="container">
+            <div class="articles__items">
+
+            
+            
+                <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/article4.html" class="article" style="background: url(../site/HR.jpg); background-size: cover;">
+                <div class="article__filter"></div>
+                <div class="article__name">Gestion de situation sensible</div>
+                <div class="article__icon"><i class="fas fa-play"></i></div>
+                </a>
+                <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/article5.html" class="article" style="background: url(../site/formation.jpg); background-size: cover;">
+                    <div class="article__filter"></div>
+                    <div class="article__name">Appui conseil RH</div>
+                    <div class="article__icon"><i class="fas fa-play"></i></div>
+                    </a>
+                    <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/article6.html" class="article" style="background: url(../site/grow.jpg); background-size: cover;">
+                        <div class="article__filter"></div>
+                        <div class="article__name">Développement des compétences</div>
+                        <div class="article__icon"><i class="fas fa-play"></i></div>
+                        </a>
+
+            
+        </div>
+        </div>
+        </div>
+
+
+
+        
+        <h1></h1>
+
+        <div class="articles">
+            <div class="container">
+            <h2 class="articles__title">Qui sommes nous ? </h2>
+            <div class="articles__items">
+            
+        
+        
+        <img class="left" 
+        src="juliette.jpg" width="155" height="170" 
+        alt="" title="" style="float:left;margin:0 10px 0 200px;" /> 
+        <h3>Juliette BRIS<br/>Consultante, Psychologue du travail</h3>
+        <h5></h5>
+        
+    </div>
+</div>
+</div>
+<h2></h2>
+<div class="row">
+    <div class="column" style="background-color:#2657329d;">
+      <h2>Parcours professionnel</h2>
+      <p><strong>Depuis 2016 :</strong><br/>Chargée d’enseignement, filière psychologie du travail au CNAM de la Réunion<br/>
+         <strong>Depuis 2014 :</strong><br/>Psychologue du travail rattachée au Rectorat de la Réunion, membre du Groupe Académique de Prévention des Pisques Psychosociaux<br/>
+         <strong>Depuis 2008 :</strong><br/>Co-fondatrice du cabinet SJA Conseil : interventions psychosociales, prévention de la santé au travail, accompagnement d’équipes, analyse des pratiques professionnelles et développement des compétences<br/>
+         <strong>1998-2004 :</strong><br/>Fondatrice et présidente d’une structure d’accueil petite enfance<br/>
+         <strong>1989-2000 :</strong><br/>Consultante en communication stratégique
+        </p>
+    </div>
+    <div class="column" style="background-color:#0634119d;">
+      <h2>Références clients </h2>
+      <p><strong>•	Diagnostic RPS et démarche QVT : </strong> <br/>
+        Orange, EDF, CGSS, SIDR, SODIAC, DSAC, Douanes, Préfecture, Pole Emploi, Croix Rouge, Bio Réunion, CRC, Père Favron, Leclerc, Université de la Réunion, Air Austral, SHLMR <br/>
+        <h1></h1>
+        <strong>•	Accompagnent de collectifs de travail :</strong> <br/>
+        APAJH, APEEJ, PJJ, AFL, Conseil General, Education Nationale, Réunion 1ere, Mairie De St Paul, IRT <br/>
+        <h1></h1>
+       <strong>•	Formation santé au travail : </strong><br/>
+        Cinor, Groupama, Chambre de métiers, SFR<br/>
+        <h1></h1>
+        <strong>•	Appui Conseil RH : </strong><br/>
+        Agefiph, AFL, Novotel, Havas, Theatre Luc Donat
+        </p>
+    </div>
+    <div class="column" style="background-color:#44bc58ab;">
+      <h2>les habilitations</h2>
+      <p><u>DIECCTE REUNION</u><br/>
+        <h1></h1>
+        <strong>Depuis 2016 :</strong><br/>Accompagnement « Conseil en Ressources Humaines »<br/>
+        <strong>Depuis 2009 :</strong><br/>Intervenant en prévention des risques professionnels (IPRP), volet organisation<br/>
+       <strong>Depuis 2019 :</strong><br/>IPRP RPS (DIECCTE/CGSS/ARACT)<br/>
+       <h1></h1>
+        <u>ANACT / ARACT Réunion</u><br/>
+        <h1></h1>
+        <strong>Depuis 2014 :</strong><br/>Appui conseil GPEC, Gestion des âges, Qualité de vie au travail, Mutations économiques<br/>
+       <strong>Depuis 2014 :</strong><br/>Appui aux relations sociales (dispositif ARESO)
+        </p>
+    </div>
+  </div>
+        
+<h2></h2>
+
+<footer>
+    <div class="footer-container">
+        <div class="left-col">
+            <img src="../site/SJA LOGOo.png" alt="" class="logo">
+            <div class="social-media">
+                <a href="https://www.facebook.com/sjaconseil"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/sja-conseil-accompagnement/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+           <p><i class="fa fa-map-marker" style="color:#5af180"></i> 8 rue des Argonautes, Espace Tamarun, la Saline les bains</p>
+            
+            <p class="rights-text">© 2020 created by hugo thiallet</p>
+        </div>
+        <div class="righ-col">
+            <h1 id="contact">Contact</h1>
+            <div class="border"></div>
+            <h4><i class="fas fa-phone" style="color:#5af180"></i> 06 92 33 75 75</h4>
+            <h4><i class="far fa-envelope" style="color:#5af180"></i> sja.accompagnement@gmail.com</h4>
+            <form action="" class="newsletter-form"></form>
+           
+
+        </div>
+    </div>
+</footer>
+</body>
+</html>

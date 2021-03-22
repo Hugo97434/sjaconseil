@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SJACONSEIL</title>
+        <script src="https://kit.fontawesome.com/0d46a31234.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap:300,400,700" rel="stylesheet">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body, html {
+                margin: 0;
+                padding: 0;
+                font-family: Libre Baskerville;
+            }
+            .container {
+                width: 90%;
+                margin: auto;
+                position: relative;
+                z-index: 999;
+            }
+            .header {
+                height: 400px;
+                width: 100%;
+                background: #a7aeb4;
+                position: relative;
+            }
+            .header__navbar {
+                width: 100%;
+                height: 80px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header__navbar--logo-title {
+                color: rgb(250, 250, 250);
+                font-size: 28px;
+            }
+            .header__navbar--menu-link {
+                margin-left: 40px;
+                color: white;
+                text-decoration: none;
+            }
+            .header__texture {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0; left: 0;
+                background-image: url(../site/grow.jpg);
+                background-size: cover;
+                z-index: 1;
+                opacity: 0.8;
+            }
+            .header__mask {
+                position: absolute;
+                bottom: 0;
+                background: 0 0;
+                height: 42px;
+                width: 100%;
+                z-index: 10;
+            }
+            .header__slogan {
+                text-align: center;
+                margin-top: 220px;
+
+            }
+            .h__slogan--title {
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .h__slogan--btn {
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+                font-size: 16px;
+                padding: 5px 12px;
+                background: rgb(67, 145, 51);
+                border-radius: 3px;
+            }
+
+            @media only screen and (max-width: 700px){
+                .container {
+                    width: 100%;
+                    padding: 0 20px;
+                }
+                .header__navbar-toggle {
+                    display: flex;
+                    z-index: 1000;
+                    
+                }
+                .header__navbar--menu {
+                    
+                    transform: translateY(-100%);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    width: 100vw;
+                    height: 100vh;
+                    top: 0;left: 0;
+                }
+                .header__navbar--menu-link {
+                    margin: 20px 0;
+                    font-size: 24px;
+                }
+            }
+            
+
+
+            .articles {
+                text-align: center;
+                padding-top: 30px;
+               
+            }
+            .articles__title {
+                font-size: 25px;
+                text-align: center;
+                color: #333;
+                border-bottom: 3px solid rgb(67, 145, 51);  
+                display: inline;
+            }
+            .articles__items {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding-top: 50px;
+                flex-wrap: wrap;
+            }
+            .article {
+                width: 25%;
+                height: 200px;
+               background-size: cover; 
+               border-radius: 5px;
+               position: relative;
+               overflow: hidden;
+               padding: 20px;
+               cursor: pointer;
+            }
+            .article__filter {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;left: 0;
+                background: linear-gradient( rgba(0, 0, 0, 0.3),rgba(0,0,0,0.2));
+            }
+            .article__name {
+                color: white;
+                z-index: 1;
+                position: relative;
+                text-align: center;
+                font-size: 16px;
+            }
+            .article:hover .article__icon {
+                transform: translateY(0);
+
+            }
+            .article__icon {
+                z-index: 1;
+                position: absolute;
+                top: 0; left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 50px;
+                color: white;
+                height: 100%;
+                transform: translateY(100%);
+                width: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+            @media only screen and (max-width: 900px) {
+               .articles__items {
+                   justify-content: center;
+
+               }
+                .article {
+                    width: 300px;
+                    margin-bottom: 20px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+            }
+           .article__view-container {
+               width: 70%;
+               margin: auto;
+               padding-top: 20px;
+           }
+           .article__view-title {
+            border-bottom: 2px solid rgb(67, 145, 51);
+            line-height: 40px;
+            display: inline;
+            font-weight: 500;
+           }
+           .article__view-content {
+               padding-top: 30px;
+               text-align: justify;
+               padding-bottom: 30px;
+               line-height: 27px;
+               font-weight: 300;
+               font-size: 17px;
+           }
+           footer{
+                background: #f1f1f1;
+                padding: 10px 0;
+            }
+            .footer-container {
+                max-width: 1300px;
+                margin: auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap-reverse;
+                
+            }
+            .logo{
+                width: 350px;
+            }
+            .social-media {
+                margin: 20px 0;
+            }
+            .social-media a{
+                color: #001a21;
+                margin-right: 25px;
+                font-size: 22px;
+                text-decoration: none;
+                transition: .3s linear;
+            }
+            .social-media a:hover{
+                color: #5af180;
+                
+            }
+            .right-col h1{
+                font-size: 26px;
+            }
+            .border{
+                width: 100px;
+                height: 4px;
+                background: #5af180;
+            }
+            .newsletter-form{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .txtb{
+                flex: 1;
+                padding: 18px 40px;
+                font-size: 16px;
+                color: #293043;
+                background: #ddd;
+                border: none;
+                font-weight: 700;
+                outline: none;
+                border-radius: 30px;
+                min-width: 260px;
+            }
+            .btn{
+                padding: 12px 30px;
+                font-size: 16px;
+                color: #f1f1f1;
+                background: #5af180;
+                border: none;
+                font-weight: 700;
+                outline: none;
+                border-radius: 30px;
+                margin-left: 20px;
+                cursor: pointer;
+                transition: opacity .3s linear;
+
+            }
+            .btn:hover{
+                opacity: .7;
+            }
+            .page-content{
+                min-width: 100vh;
+                font-size: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            @media screen and (max-width:960px) {
+                .footer-container{
+                    max-width: 100%;
+                    margin-bottom: 60px;
+                }
+                .left-col{
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            @media screen and (max-width: 700){
+                .btn{
+                    margin: 0;
+                    width: 100%;
+                    margin-top: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header__texture"></div>
+            <div class="header__mask">
+                <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" >
+                    <path d="M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" fill="#fff"></path>
+                </svg>
+            </div>
+           <div class="container">
+            <div class="header__navbar">
+                <div class="header__navbar--logo">
+                    <h1 class="header__navbar--logo-title">SJA CONSEIL</h1>
+                </div>
+                <div class="header__navbar--menu">
+                    <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/index.html" class="header__navbar--menu-link"><i class="fas fa-home"></i> Accueil</a>
+                    <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/index.html" class="header__navbar--menu-link"><i class="fas fa-newspaper"></i> Solutions</a>
+                    <a href="#contact" class="header__navbar--menu-link"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+                <div class="header__navbar-toggle">
+                    <span class="header__navbar-toggle-icons"></span>
+                </div>
+            </div>
+            <div class="header__slogan">
+                <h1 class="h__slogan--title">Solutions & champs d'intervention</h1>
+                <a href="file:///C:/Users/Utilisateur/Desktop/SJA/site/index.html" class="h__slogan--btn"><i class="fas fa-chevron-left"></i> Retour</a>
+            </div>
+           </div>
+        </div>
+     <div class="article__view-container">
+        <div class="article__view">
+            
+            <h2 class="article__view-title">Développement des compétences</h2>
+            
+            <p class="article__view-content">
+                Nous proposons des formations adaptées au contexte d’activité des entreprises et au besoin de montée en compétences des collaborateurs : </p>
+      <p>• S’initier à la prévention des risques psychosociaux </p>
+      <p>• Associer les Managers dans la prévention des risques psychosociaux </p>
+      <p>• Piloter une démarche Qualité de vie au travail </p>
+      <p>• Gérer ses émotions dans les situations sensibles </p>
+      <p>• Faire face à l’agressivité et à la violence sur le lieu de travail  </p>
+      <p>• Faire face aux situations de crise sur le lieu de travail </p>
+      <p>• Mener des entretiens sensibles</p>
+      <p>• Développer la relation d’aide professionnelle </p>
+      <p>• Accueillir et intégrer un travailleur en situation de handicap </p>
+      <H1></H1>
+            </div>   
+     </div>
+
+     <h1></h1>
+
+        
+     <footer>
+        <div class="footer-container">
+            <div class="left-col">
+                <img src="../site/SJA LOGOo.png" alt="" class="logo">
+                <div class="social-media">
+                    <a href="https://www.facebook.com/sjaconseil"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/company/sja-conseil-accompagnement/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+               <p><i class="fa fa-map-marker" style="color:#5af180"></i> 8 rue des Argonautes, Espace Tamarun, la Saline les bains</p>
+                
+                <p class="rights-text">© 2020 created by hugo thiallet</p>
+            </div>
+            <div class="righ-col">
+                <h1 id="contact">Contact</h1>
+                <div class="border"></div>
+                <h4><i class="fas fa-phone" style="color:#5af180"></i> 06 92 33 75 75</h4>
+                <h4><i class="far fa-envelope" style="color:#5af180"></i> sja.accompagnement@gmail.com</h4>
+                <form action="" class="newsletter-form"></form>
+               
+    
+            </div>
+        </div>
+    </footer>
+
+    </body>
+</html>
